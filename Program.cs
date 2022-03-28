@@ -4,13 +4,23 @@ namespace ConwaysGameOfLife
 {
   internal static class Program
   {
+    /// <summary>
+    /// Simulate the future cell generation using the Rule of Life and display it
+    /// </summary>
+    /// <param name="grid">Starting grid from current generation</param>
+    /// <param name="numOfGens">How many future generations to simulate</param>
     private static void SimulateCellGen(int[,] grid, int numOfGens)
     {
+      // Get height
       var m = grid.GetLength(0);
+      // Get width
       var n = grid.GetLength(1);
-      for (var i = 0; i < numOfGens; i++)
+
+      // Create and print future generations one generation at a time
+      for (var i = 0; i <= numOfGens; i++)
       {
-        Console.WriteLine("Generation " + (i + 1));
+        Console.WriteLine("Generation " + i);
+        // Only create a new grid if it isn't the base grid
         if (i != 0)
         {
           grid = BuildGraph(grid, m, n);
@@ -18,6 +28,14 @@ namespace ConwaysGameOfLife
         DrawBoard(grid, m, n);
       }
     }
+
+    /// <summary>
+    /// Construct a new grid by predicting cell growth/death using the Rules of Life
+    /// </summary>
+    /// <param name="grid">Current grid</param>
+    /// <param name="m">Grid height</param>
+    /// <param name="n">Grid width</param>
+    /// <returns>Future grid prediction</returns>
     private static int[,] BuildGraph(int [,] grid, int m, int n)
       {
         var nextGrid = new int[m, n];
@@ -27,36 +45,34 @@ namespace ConwaysGameOfLife
         {
           for (var j = 1; j < n - 1; j++)
           {
-            // finding num Of neighbours that are alive
-            var aliveNeighbours = 0;
+            // find the number of living neighbours
+            var livingNeighbors = 0;
             for (var k = -1; k <= 1; k++)
             {
               for (var l = -1; l <= 1; l++)
               {
-                aliveNeighbours += grid[i + k, j + l];
+                livingNeighbors += grid[i + k, j + l];
               }
             }
-
             // The cell needs to be subtracted from its neighbours as it was counted before
-            aliveNeighbours -= grid[i, j];
+            livingNeighbors -= grid[i, j];
 
-            // Implementing the Rules of Life
             // Cell is lonely and dies
-            if (grid[i, j] == 1 && aliveNeighbours < 2)
+            if (grid[i, j] == 1 && livingNeighbors < 2)
             {
               nextGrid[i, j] = 0;
             }
-            // Cell dies due to over population
-            else if (grid[i, j] == 1 && aliveNeighbours > 3)
+            // Cell dies because of over population
+            else if (grid[i, j] == 1 && livingNeighbors > 3)
             {
               nextGrid[i, j] = 0;
             }
-            // A new cell is born
-            else if (grid[i, j] == 0 && aliveNeighbours == 3)
+            // New cell is created
+            else if (grid[i, j] == 0 && livingNeighbors == 3)
             {
               nextGrid[i, j] = 1;
             }
-            // Remains the same
+            // No change
             else
             {
               nextGrid[i, j] = grid[i, j];
@@ -67,44 +83,46 @@ namespace ConwaysGameOfLife
         return nextGrid;
       }
 
+    /// <summary>
+    /// Replace 0s with . and 1s with * and print the grid
+    /// </summary>
+    /// <param name="grid">Grid to print (mxn)</param>
+    /// <param name="m">Grid height</param>
+    /// <param name="n">Grid Width</param>
     private static void DrawBoard(int[,] grid, int m, int n)
     {
       for (var i = 0; i < m; i++)
       {
         for (var j = 0; j < n; j++)
         {
-          if (grid[i, j] == 0)
-          {
-            Console.Write(".");
-          }
-          else
-          {
-            Console.Write("*");
-          }
+          Console.Write(grid[i, j] == 0 ? "." : "*");
         }
         Console.WriteLine();
       }
       Console.WriteLine();
     }
 
-    public static void Main(string[] args)
+    /// <summary>
+    /// Main method to run the simulation
+    /// </summary>
+    public static void Main()
     {
-      // Set number of generations to simulate
+      // Input params
       const int numOfGens = 5;
-      // Init grid
       int[,] grid = {
+        { 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0 },
+        { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 },
         { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0 },
-        { 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 },
+        { 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 },
         { 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+        { 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 }
       };
 
+      // Run the sim
       SimulateCellGen(grid, numOfGens);
     }
   }
