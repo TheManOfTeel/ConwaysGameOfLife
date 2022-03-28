@@ -1,0 +1,6 @@
+/Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/bin/Debug/ConwaysGameOfLife.exe
+/Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/bin/Debug/ConwaysGameOfLife.pdb
+/Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.csprojAssemblyReference.cache
+/Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.csproj.CoreCompileInputs.cache
+/Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.exe
+/Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.pdb
