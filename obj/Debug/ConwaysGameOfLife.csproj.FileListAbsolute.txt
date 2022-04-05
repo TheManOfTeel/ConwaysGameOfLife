@@ -4,3 +4,10 @@
 /Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.csproj.CoreCompileInputs.cache
 /Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.exe
 /Users/dannyteel/Dev/Projects/ConwaysGameOfLife/ConwaysGameOfLife/obj/Debug/ConwaysGameOfLife.pdb
+C:\Dev\Projects\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.exe
+C:\Dev\Projects\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.pdb
+C:\Dev\Projects\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csproj.AssemblyReference.cache
+C:\Dev\Projects\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csproj.SuggestedBindingRedirects.cache
+C:\Dev\Projects\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csproj.CoreCompileInputs.cache
+C:\Dev\Projects\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.exe
+C:\Dev\Projects\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.pdb

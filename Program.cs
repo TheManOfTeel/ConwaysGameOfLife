@@ -19,6 +19,7 @@ namespace ConwaysGameOfLife
       // Create and print future generations one generation at a time
       for (var i = 0; i <= numOfGens; i++)
       {
+        Console.Clear();
         Console.WriteLine("Generation " + i);
         // Only create a new grid if it isn't the base grid
         if (i != 0)
@@ -26,6 +27,7 @@ namespace ConwaysGameOfLife
           grid = BuildGraph(grid, m, n);
         }
         DrawBoard(grid, m, n);
+        System.Threading.Thread.Sleep(1000);
       }
     }
 
@@ -40,7 +42,7 @@ namespace ConwaysGameOfLife
       {
         var nextGrid = new int[m, n];
 
-        // Loop through every cell
+        // Loop through every cell that is not a border cell
         for (var i = 1; i < m - 1; i++)
         {
           for (var j = 1; j < n - 1; j++)
@@ -110,14 +112,14 @@ namespace ConwaysGameOfLife
       // Input params
       const int numOfGens = 5;
       int[,] grid = {
-        { 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
+        { 1, 0, 0, 0, 1, 0, 0, 0, 0, 1 },
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0 },
         { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 },
         { 0, 0, 0, 1, 1, 0, 0, 0, 0, 0 },
         { 0, 0, 0, 1, 0, 0, 0, 0, 0, 1 },
-        { 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
+        { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
         { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
         { 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 }
       };
