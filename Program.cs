@@ -5,7 +5,8 @@ namespace ConwaysGameOfLife
   internal static class Program
   {
     /// <summary>
-    /// Simulate the future cell generation using the Rule of Life and display it
+    /// Simulate the future cell generation using the Rule of Life and display it.
+    /// Does not take into account wrapping edges.
     /// </summary>
     /// <param name="grid">Starting grid from current generation</param>
     /// <param name="numOfGens">How many future generations to simulate</param>
