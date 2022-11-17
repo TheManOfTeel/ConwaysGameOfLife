@@ -7,6 +7,7 @@ namespace ConwaysGameOfLife
     /// <summary>
     /// Simulate the future cell generation using the Rule of Life and display it.
     /// Does not take into account wrapping edges.
+    /// Does not simulate cells that could neigbor field of view
     /// </summary>
     /// <param name="grid">Starting grid from current generation</param>
     /// <param name="numOfGens">How many future generations to simulate</param>
